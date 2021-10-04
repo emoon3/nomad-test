@@ -24,3 +24,5 @@ The script should take about 4-5 minutes to finish.
 The script will create an EC instance, a security group allowing the ports needed, and an instance role.
 
 It will then install the necessary software on the instance and deploy the Nomad job via the Nomad API.
+
+To tear down the AWS environment, go to the terraform directory and run a 'terraform destroy'
