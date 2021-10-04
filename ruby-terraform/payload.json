@@ -1,0 +1,70 @@
+{
+    "Job": {
+        "ID": "homework",
+        "Datacenters": [
+        "dc1"
+        ],
+        "TaskGroups": [
+        {
+            "Name": "frontend",
+            "Count": 1,
+            "Tasks": [
+            {
+                "Name": "frontend",
+                "Driver": "docker",
+                "User": "",
+                "Config": {
+                "ports": [
+                    "frontend"
+                ],
+                "image": "geoj/density_frontend"
+                }
+            },
+            {
+                "Name": "backend",
+                "Driver": "docker",
+                "User": "",
+                "Config": {
+                "image": "geoj/density_backend",
+                "ports": [
+                    "backend"
+                ]
+                }
+            }
+            ],
+            "Networks": [
+            {
+                "Mode": "bridge",
+                "ReservedPorts": [
+                {
+                    "Label": "frontend",
+                    "Value": 5000,
+                    "To": 0
+                },
+                {
+                    "Label": "backend",
+                    "Value": 5001,
+                    "To": 0
+                }
+                ]
+            }
+            ],
+            "Services": [
+            {
+                "Name": "frontend",
+                "PortLabel": "frontend",
+                "Connect": {
+                "SidecarService": {}
+                }
+            },
+            {
+                "Name": "backend",
+                "Connect": {
+                "SidecarService": {}
+                }
+            }
+            ]
+        }
+        ]
+    }
+}
