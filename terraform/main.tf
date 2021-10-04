@@ -55,10 +55,6 @@ resource "aws_security_group" "allow_nomad" {
       ipv6_cidr_blocks = null
     }
   ]
-
-  tags = {
-    Name = "allow_tls"
-  }
 }
 
 resource "aws_iam_instance_profile" "ssm_profile" {
