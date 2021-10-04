@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM --platform=linux/amd64 alpine:latest
 
 RUN apk add --update --no-cache curl py-pip
 RUN apk add --no-cache bash
@@ -15,4 +15,4 @@ RUN pip3 install -r requirements.txt
 RUN sqlite3 database.db < schema.sql
 
 ENTRYPOINT [ "python3" ] 
-CMD ["app_b.py"]
+CMD [ "app_b.py" ]

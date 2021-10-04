@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM --platform=linux/amd64 alpine:latest
 
 RUN apk add --update --no-cache curl py-pip
 RUN apk add --no-cache bash
@@ -11,5 +11,7 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
+EXPOSE 5000
+
 ENTRYPOINT [ "python3" ] 
-CMD ["app_a.py"]
+CMD [ "app_a.py" ]
