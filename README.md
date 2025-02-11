@@ -1,4 +1,4 @@
-# nomad-test
+# server deployment test
 
 Test deployment of server and client. Requires the following:
 
