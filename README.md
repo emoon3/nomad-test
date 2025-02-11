@@ -1,6 +1,6 @@
 # nomad-test
 
-Test deployment of Nomad server and client. Requires the following:
+Test deployment of server and client. Requires the following:
 
 AWS cli
 terraform
